@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import os
-import json
 from SentimentAnalyser import SentimentAnalyserText
 
 app = Flask(__name__)
