@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import os
 import json
+from SentimentAnalyser import SentimentAnalyserText
 
 app = Flask(__name__)
 
@@ -11,8 +12,7 @@ def index():
 @app.route('/analyze/sentiment', methods=['GET', 'POST'])
 def analyze_sentiment():
 	speech = request.get_json()['speech']
-	result = jsonify(speech)
-	return result
-
+	return jsonify(SentimentAnalyserText(speech))
+	
 if __name__ == '__main__':
 	app.run(debug=False, host='0.0.0.0', port=4000)
